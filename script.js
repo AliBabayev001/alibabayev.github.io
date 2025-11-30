@@ -12,9 +12,38 @@ document.addEventListener('DOMContentLoaded', function() {
     // Active navigation highlight
     highlightActiveNavigation();
     
+    // Ensure search markup exists (useful when Live Server opens a non-index page)
+    ensureSearchInNavbar();
     // Search functionality
     setupSearch();
 });
+
+// If the page was opened directly (e.g. Live Server opens about.html),
+// some builds or editors may not include the search markup. Ensure it's present.
+function ensureSearchInNavbar() {
+    try {
+        const navbarLeft = document.querySelector('.navbar-left');
+        if (!navbarLeft) return;
+        // If search input already exists, nothing to do
+        if (document.getElementById('search-input')) return;
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'search-bar';
+        wrapper.innerHTML = `
+            <input type="text" id="search-input" placeholder="Search..." class="search-input" />
+            <div id="search-results" class="search-results"></div>
+        `;
+        // Insert after the logo if logo exists
+        const logo = navbarLeft.querySelector('.logo');
+        if (logo && logo.nextSibling) {
+            logo.parentNode.insertBefore(wrapper, logo.nextSibling);
+        } else {
+            navbarLeft.appendChild(wrapper);
+        }
+    } catch (err) {
+        console.error('ensureSearchInNavbar error:', err);
+    }
+}
 
 // Smooth Scrolling for Navigation Links
 function setupSmoothScrolling() {
