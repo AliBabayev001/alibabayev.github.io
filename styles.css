@@ -97,6 +97,10 @@ body {
     cursor: pointer;
     border-bottom: 1px solid #f0f0f0;
     transition: background-color 0.15s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .search-result-item:hover {
@@ -105,6 +109,16 @@ body {
 
 .search-result-item:last-child {
     border-bottom: none;
+}
+
+.search-result-page {
+    font-size: 0.75rem;
+    color: #999;
+    background-color: #f0f0f0;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .search-result-title {

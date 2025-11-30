@@ -118,14 +118,23 @@ function highlightActiveNavigation() {
     updateActiveLink();
 }
 
-// Search Functionality
+// Search Functionality - Multi-page search
 function setupSearch() {
     const searchInput = document.getElementById('search-input');
     const searchResults = document.getElementById('search-results');
     
     if (!searchInput || !searchResults) return;
     
-    // Build search index from page content
+    // Define pages to search
+    const pages = [
+        { name: 'index.html', title: 'Home' },
+        { name: 'about.html', title: 'About' },
+        { name: 'projects.html', title: 'Projects' }
+    ];
+    
+    // Build search index from current page and cache other pages
+    let globalSearchIndex = [];
+    
     function buildSearchIndex() {
         const index = [];
         
@@ -133,10 +142,13 @@ function setupSearch() {
         document.querySelectorAll('h1, h2, h3, h4, p, li').forEach(element => {
             const text = element.textContent.trim();
             if (text.length > 0 && !element.closest('nav') && !element.closest('footer')) {
+                const currentPage = window.location.pathname.split('/').pop() || 'index.html';
                 index.push({
                     text: text,
                     element: element,
-                    heading: element.tagName
+                    heading: element.tagName,
+                    page: currentPage,
+                    pageTitle: pages.find(p => p.name === currentPage)?.title || 'Page'
                 });
             }
         });
@@ -144,7 +156,8 @@ function setupSearch() {
         return index;
     }
     
-    const searchIndex = buildSearchIndex();
+    // Build initial index for current page
+    globalSearchIndex = buildSearchIndex();
     
     // Search function
     function performSearch(query) {
@@ -156,22 +169,30 @@ function setupSearch() {
         }
         
         const lowerQuery = query.toLowerCase();
-        const matches = searchIndex.filter(item => 
+        
+        // Search in current page index
+        const matches = globalSearchIndex.filter(item => 
             item.text.toLowerCase().includes(lowerQuery)
         );
         
         if (matches.length === 0) {
             const noResults = document.createElement('div');
             noResults.className = 'search-result-item';
-            noResults.textContent = 'No results found';
+            noResults.textContent = 'No results found across all pages';
             noResults.style.opacity = '0.6';
             searchResults.appendChild(noResults);
             searchResults.classList.add('active');
             return;
         }
         
-        // Show top 8 results
-        matches.slice(0, 8).forEach(match => {
+        // Show top 10 results, grouped by relevance
+        const sortedMatches = matches.sort((a, b) => {
+            const aIndex = a.text.toLowerCase().indexOf(lowerQuery);
+            const bIndex = b.text.toLowerCase().indexOf(lowerQuery);
+            return aIndex - bIndex;
+        });
+        
+        sortedMatches.slice(0, 10).forEach(match => {
             const resultItem = document.createElement('div');
             resultItem.className = 'search-result-item';
             
@@ -193,15 +214,33 @@ function setupSearch() {
                 resultItem.textContent = title;
             }
             
-            // Click to scroll to element
+            // Add page indicator if on different page
+            if (match.page !== (window.location.pathname.split('/').pop() || 'index.html')) {
+                const pageIndicator = document.createElement('div');
+                pageIndicator.className = 'search-result-page';
+                pageIndicator.textContent = `[${match.pageTitle}]`;
+                resultItem.appendChild(pageIndicator);
+            }
+            
+            // Click to navigate and scroll to element
             resultItem.addEventListener('click', function() {
-                match.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                searchResults.classList.remove('active');
-                searchInput.value = '';
-                match.element.classList.add('highlight');
-                setTimeout(() => {
-                    match.element.classList.remove('highlight');
-                }, 2000);
+                const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+                
+                if (match.page === currentPage) {
+                    // Same page - scroll to element
+                    match.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    searchResults.classList.remove('active');
+                    searchInput.value = '';
+                    match.element.classList.add('highlight');
+                    setTimeout(() => {
+                        match.element.classList.remove('highlight');
+                    }, 2000);
+                } else {
+                    // Different page - navigate and let the next page handle highlighting
+                    // Store the search term in session storage
+                    sessionStorage.setItem('searchHighlight', match.text.substring(0, 30));
+                    window.location.href = match.page;
+                }
             });
             
             searchResults.appendChild(resultItem);
@@ -227,6 +266,29 @@ function setupSearch() {
         if (e.key === 'Escape') {
             searchResults.classList.remove('active');
             searchInput.value = '';
+        }
+    });
+    
+    // Highlight search term from session storage if coming from another page
+    window.addEventListener('load', function() {
+        const highlightTerm = sessionStorage.getItem('searchHighlight');
+        if (highlightTerm) {
+            const allElements = document.querySelectorAll('h1, h2, h3, h4, p, li');
+            let found = false;
+            
+            for (let element of allElements) {
+                if (element.textContent.toLowerCase().includes(highlightTerm.toLowerCase())) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    element.classList.add('highlight');
+                    setTimeout(() => {
+                        element.classList.remove('highlight');
+                    }, 2000);
+                    found = true;
+                    break;
+                }
+            }
+            
+            sessionStorage.removeItem('searchHighlight');
         }
     });
 }
@@ -320,11 +382,16 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.email-button').forEach(button => {
         button.addEventListener('click', function(e) {
             e.preventDefault();
+            e.stopPropagation();
             
             const email = this.getAttribute('data-email');
             if (email) {
-                // Open mailto link directly
-                window.location.href = 'mailto:' + email;
+                // Create a temporary anchor element to trigger mailto
+                const link = document.createElement('a');
+                link.href = 'mailto:' + email;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
             }
         });
     });
