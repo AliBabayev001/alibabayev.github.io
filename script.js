@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Active navigation highlight
     highlightActiveNavigation();
+    
+    // Search functionality
+    setupSearch();
 });
 
 // Smooth Scrolling for Navigation Links
@@ -113,6 +116,119 @@ function highlightActiveNavigation() {
     
     // Initial call
     updateActiveLink();
+}
+
+// Search Functionality
+function setupSearch() {
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+    
+    if (!searchInput || !searchResults) return;
+    
+    // Build search index from page content
+    function buildSearchIndex() {
+        const index = [];
+        
+        // Get all headings and paragraphs
+        document.querySelectorAll('h1, h2, h3, h4, p, li').forEach(element => {
+            const text = element.textContent.trim();
+            if (text.length > 0 && !element.closest('nav') && !element.closest('footer')) {
+                index.push({
+                    text: text,
+                    element: element,
+                    heading: element.tagName
+                });
+            }
+        });
+        
+        return index;
+    }
+    
+    const searchIndex = buildSearchIndex();
+    
+    // Search function
+    function performSearch(query) {
+        searchResults.innerHTML = '';
+        
+        if (query.length === 0) {
+            searchResults.classList.remove('active');
+            return;
+        }
+        
+        const lowerQuery = query.toLowerCase();
+        const matches = searchIndex.filter(item => 
+            item.text.toLowerCase().includes(lowerQuery)
+        );
+        
+        if (matches.length === 0) {
+            const noResults = document.createElement('div');
+            noResults.className = 'search-result-item';
+            noResults.textContent = 'No results found';
+            noResults.style.opacity = '0.6';
+            searchResults.appendChild(noResults);
+            searchResults.classList.add('active');
+            return;
+        }
+        
+        // Show top 8 results
+        matches.slice(0, 8).forEach(match => {
+            const resultItem = document.createElement('div');
+            resultItem.className = 'search-result-item';
+            
+            // Create title from heading or first 50 chars
+            let title = match.text;
+            if (title.length > 50) {
+                title = title.substring(0, 50) + '...';
+            }
+            
+            // Highlight the matched query in the result
+            const highlightIndex = title.toLowerCase().indexOf(lowerQuery);
+            if (highlightIndex !== -1) {
+                const before = title.substring(0, highlightIndex);
+                const matched = title.substring(highlightIndex, highlightIndex + lowerQuery.length);
+                const after = title.substring(highlightIndex + lowerQuery.length);
+                
+                resultItem.innerHTML = `${before}<strong>${matched}</strong>${after}`;
+            } else {
+                resultItem.textContent = title;
+            }
+            
+            // Click to scroll to element
+            resultItem.addEventListener('click', function() {
+                match.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                searchResults.classList.remove('active');
+                searchInput.value = '';
+                match.element.classList.add('highlight');
+                setTimeout(() => {
+                    match.element.classList.remove('highlight');
+                }, 2000);
+            });
+            
+            searchResults.appendChild(resultItem);
+        });
+        
+        searchResults.classList.add('active');
+    }
+    
+    // Event listeners
+    searchInput.addEventListener('input', function(e) {
+        performSearch(e.target.value);
+    });
+    
+    // Close results when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.search-bar')) {
+            searchResults.classList.remove('active');
+        }
+    });
+    
+    // Allow ESC key to close search results
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            searchResults.classList.remove('active');
+            searchInput.value = '';
+        }
+    });
 }
 
 // Interactive Project Cards - Expand/Collapse on Click
