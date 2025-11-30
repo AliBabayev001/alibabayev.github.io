@@ -315,11 +315,19 @@ body {
     box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
     min-width: 300px;
     text-align: center;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: inherit;
 }
 
 .email-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+}
+
+.email-button:active {
+    transform: translateY(-1px);
 }
 
 .email-button strong {

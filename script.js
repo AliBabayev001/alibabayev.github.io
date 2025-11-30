@@ -314,6 +314,22 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
+// Email Button Handlers
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle all email buttons
+    document.querySelectorAll('.email-button').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const email = this.getAttribute('data-email');
+            if (email) {
+                // Open mailto link directly
+                window.location.href = 'mailto:' + email;
+            }
+        });
+    });
+});
+
 // Lazy load images (for future use with actual images)
 if ('IntersectionObserver' in window) {
     const imageObserver = new IntersectionObserver((entries, observer) => {
