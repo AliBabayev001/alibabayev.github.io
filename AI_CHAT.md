@@ -56,6 +56,7 @@ Multi-page portfolio for Ali Babayev with centralized styling/behavior, sticky n
 - Hero portrait/greeting experiments were reverted; current hero is text-only pending a medium-portrait re-add.
 
 ## Step-by-Step Work Log (recent highlights)
+
 - Added navbar social icons (GitHub, Codecademy, repo) under the logo and hid them on mobile; ensured sticky nav z-index.
 - Implemented multi-page search with sessionStorage handoff and auto-injected search bar on direct page loads; added highlighting and smooth scroll to results.
 - Standardized contact sections: replaced scattered social/contact blocks with a single "Get In Touch" pattern (ADA email, Gmail, GitHub, Codecademy, repo) on Home, About, Projects, and legacy page.
@@ -64,6 +65,28 @@ Multi-page portfolio for Ali Babayev with centralized styling/behavior, sticky n
 - Fixed mailto white-screen issue by creating temporary mailto anchors instead of navigating directly.
 - Removed redundant "work together" CTAs on About/Projects so only the unified contact section remains.
 - Updated `AI_CHAT.md` to reflect current site state, structure, features, and verification steps; expanded with this step-by-step log.
+
+## Detailed Changelog (chronological)
+
+- Initialized multi-page portfolio scaffold (Home, About, Projects) with shared CSS/JS, responsive grid/flex layouts, and base hero/about/projects/contact sections.
+- Added sticky navbar with box shadow and z-index fix; ensured nav stays clickable while scrolling.
+- Implemented smooth scrolling and scroll-to-top button; added IntersectionObserver-based reveal animations.
+- Added scroll-based active-link highlighting for navigation.
+- Built initial About page with portrait, bio, studies/hobbies, and Skills section (later reordered); created initial Projects page with project cards and placeholders.
+- Added GitHub and Codecademy links; added repository link in footer.
+- Implemented multi-page search (sessionStorage-backed) with result highlighting and smooth scroll; injected search bar on direct page loads to avoid missing search UI.
+- Added lazy image loading for performance.
+- Standardized contact sections into a "Get In Touch" block with ADA and Gmail buttons plus GitHub/Codecademy/repo links; applied to Home, About, Projects.
+- Added navbar social icons (GitHub, Codecademy, repo) under the logo; hid on mobile breakpoint for spacing.
+- Reordered Skills & Expertise to Mathematics → Personal Tutor for Math → Computer Science; enforced three-column desktop grid (single column on mobile).
+- Renamed Project 1 to "How does hardware work?"; expanded with 4-image gallery and captions; kept role as Commentator & Recorder and ADA affiliation; ensured text does not overlap images.
+- Fixed mailto white-screen issue by generating temporary mailto anchors instead of direct navigation.
+- Removed redundant "Let's Work Together" and "Interested in Working Together" CTAs, keeping only the unified contact sections.
+- Updated legacy `Ali SITE Project 3.html` with the Get In Touch block for parity (left older bio/skills for historical reference).
+- Experimented with hero portrait/greeting on Home; reverted to text-only (portrait re-add planned above greeting at medium size).
+- Added stacked social icons under the site name across pages and maintained hide-on-mobile rule.
+- Kept skills grid horizontal on desktop and ensured mobile collapse behavior.
+- Maintained centralized `styles.css` and `script.js` for all styling/behavior; kept images in `images/` (portrait + project photos).
 
 ## File Structure (repo root)
 
