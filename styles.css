@@ -237,8 +237,10 @@ body {
 
 .skills {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    align-items: stretch;
 }
 
 .skill-item {
@@ -247,6 +249,13 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.skill-item ul {
+    flex: 1;
 }
 
 .skill-item h3 {
