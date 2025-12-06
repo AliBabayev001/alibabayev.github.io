@@ -55,6 +55,16 @@ Multi-page portfolio for Ali Babayev with centralized styling/behavior, sticky n
 - Brought legacy `Ali SITE Project 3.html` up to parity by adding Get In Touch while leaving older bio/skills for reference.
 - Hero portrait/greeting experiments were reverted; current hero is text-only pending a medium-portrait re-add.
 
+## Step-by-Step Work Log (recent highlights)
+- Added navbar social icons (GitHub, Codecademy, repo) under the logo and hid them on mobile; ensured sticky nav z-index.
+- Implemented multi-page search with sessionStorage handoff and auto-injected search bar on direct page loads; added highlighting and smooth scroll to results.
+- Standardized contact sections: replaced scattered social/contact blocks with a single "Get In Touch" pattern (ADA email, Gmail, GitHub, Codecademy, repo) on Home, About, Projects, and legacy page.
+- Reordered Skills & Expertise to Mathematics → Personal Tutor for Math → Computer Science; enforced three-column desktop grid and single-column mobile fallback.
+- Renamed Project 1 to "How does hardware work?"; ensured gallery captions and text do not overlap images; kept role as Commentator & Recorder with ADA affiliation.
+- Fixed mailto white-screen issue by creating temporary mailto anchors instead of navigating directly.
+- Removed redundant "work together" CTAs on About/Projects so only the unified contact section remains.
+- Updated `AI_CHAT.md` to reflect current site state, structure, features, and verification steps; expanded with this step-by-step log.
+
 ## File Structure (repo root)
 
 - `index.html` – Home
