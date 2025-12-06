@@ -2,31 +2,31 @@
 
 ## Overview
 
-Multi-page portfolio for Ali Babayev with shared styling, sticky navigation, and consistent contact sections. Pages: `index.html`, `about.html`, `projects.html` (plus legacy `Ali SITE Project 3.html`). Central CSS/JS handle layout, animations, and search.
+Multi-page portfolio for Ali Babayev (Home, About, Projects) with centralized styling/behavior, sticky navigation, multi-page search, and unified "Get In Touch" contact sections. A legacy page (`Ali SITE Project 3.html`) remains for reference. This log summarizes decisions, iterations, and current state.
 
 ## Current Pages
 
-- **Home (`index.html`)**: Hero with "Hello, I'm Ali Babayev" and ADA student subtitle; social icons under logo; previews for About and Projects; full "Get In Touch" section with emails, GitHub, Codecademy, and repo link.
-- **About (`about.html`)**: Portrait, bio with math achievements and grandfather influence, detailed studies; skills reordered to Mathematics → Personal Tutor for Math → Computer Science; contact section identical to home; removed extra CTA.
-- **Projects (`projects.html`)**: Project 1 renamed to "How does hardware work?" with 4-image gallery, role Commentator & Recorder, highlights list; contact section identical to home; removed extra CTA.
-- **Legacy (`Ali SITE Project 3.html`)**: Older about-page variant now also has a Get In Touch block; still contains old frontend/backend/tools skills and older bio.
+- **Home (`index.html`)**: Hero with greeting + ADA student subtitle; logo with social icons (GitHub, Codecademy, repo) stacked under the name; preview cards for About and Projects; full contact block with two email buttons and social links.
+- **About (`about.html`)**: Portrait + bio featuring math achievements (100.0 SEC, 150.0 Blok, AP Calc BC 5, SAT Math 800, 3 Olympiad medals SASMO/AMO) and grandfather’s math/CS influence; studies and hobbies; skills reordered to Mathematics → Personal Tutor for Math → Computer Science; contact block identical to Home.
+- **Projects (`projects.html`)**: Project 1 renamed to "How does hardware work?" with 4-image gallery, role Commentator & Recorder, highlights list, ADA affiliation; contact block identical to Home.
+- **Legacy (`Ali SITE Project 3.html`)**: Older about-page variant; now has a Get In Touch section but still contains older bio and frontend/backend/tools skills.
 
-## Key Features
+## Key Features (site-wide)
 
-- **Navigation & Search**: Sticky navbar (z-index fixed), multi-page search with injected search bar on direct loads, active-link highlighting, smooth scrolling, scroll-to-top, and lazy image loading.
-- **Contact**: Uniform "Get In Touch" sections on all primary pages with two email buttons and social links (GitHub, Codecademy, repo).
-- **Social Icons**: GitHub, Codecademy, and repository icons under the site name in the navbar (hidden on mobile breakpoint).
-- **Skills Layout**: Three-column grid on desktop; collapses to single column on small screens. Math-first ordering per user request.
-- **Project Gallery**: Two-column layout with captions; text kept from overlapping images; project renamed to match user request.
-- **Email Handling**: Buttons create temporary mailto anchors to avoid white-screen issues.
-- **Responsiveness**: Centralized `styles.css` with grid/flex layouts and media queries (notably 768px breakpoint).
+- **Navigation/Search**: Sticky navbar (z-index fixed); smooth scrolling; active-link highlighting; scroll-to-top; multi-page search with sessionStorage and auto-injected search bar on direct loads; lazy image loading.
+- **Contact**: Uniform "Get In Touch" sections on all primary pages with ADA and Gmail mailto buttons plus GitHub/Codecademy/repo links.
+- **Social Icons**: GitHub, Codecademy, and repository icons under the site name in the navbar; hidden on small screens for spacing.
+- **Skills Layout**: Three-column grid on desktop (Math-first ordering); collapses to single column on mobile.
+- **Projects Gallery**: Two-column layout with captions; text kept clear of images.
+- **Email Handling**: Buttons spawn temporary mailto anchors to avoid white-screen navigation.
+- **Responsiveness**: Centralized `styles.css` with grid/flex layouts and a 768px breakpoint.
 
-## Recent Changes
+## Recent Changes (latest notable)
 
-- Removed redundant "work together" CTA sections from About and Projects, keeping only the unified contact block.
-- Ensured legacy `Ali SITE Project 3.html` also has the Get In Touch section.
-- Reverted prior hero portrait/greeting experiments; home hero currently text-only.
-- Navbar social icons added beneath the logo across pages; skills forced to 3 columns on desktop.
+- Removed redundant "work together" CTA sections on About/Projects to keep only the unified contact block.
+- Added Get In Touch to the legacy `Ali SITE Project 3.html` for consistency.
+- Reverted hero portrait/greeting experiments; Home hero is currently text-only (portrait can be reintroduced if desired).
+- Added navbar social icons under the logo across pages; forced skills to 3 equal columns on desktop.
 
 ## File Structure (repo root)
 
@@ -42,11 +42,11 @@ Multi-page portfolio for Ali Babayev with shared styling, sticky navigation, and
 
 ## How to Run
 
-Open `index.html` in a browser (or use Live Server). Navigation links move between pages; search works across pages; contact buttons open email clients via mailto.
+Open `index.html` in a browser (or use Live Server). Navigation moves between pages; search works across pages; contact buttons open mailto in the client.
 
-## Possible Next Steps
+## Pending / Possible Next Steps
 
-- Add medium portrait to home hero above the greeting (pending user approval of size/placement).
-- Update legacy `Ali SITE Project 3.html` to match current bio/skills or remove if unused.
-- Add more projects and real images; consider a blog or contact form.
-- Add dark mode and further SEO/meta improvements.
+- Re-add a medium portrait to the Home hero above the greeting with balanced sizing.
+- Modernize or retire the legacy `Ali SITE Project 3.html` to match the current bio/skills.
+- Add more projects with real assets; consider a blog or contact form.
+- Add dark mode, SEO/meta improvements, and optional analytics.
