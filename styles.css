@@ -187,6 +187,16 @@ body {
     text-align: center;
 }
 
+.hero-portrait {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 2rem;
+    border: 4px solid white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 0.5rem;
@@ -791,6 +801,43 @@ body {
 
 .github-repo a:hover {
     color: #764ba2;
+}
+
+.repo-label {
+    display: block;
+    color: #667eea;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.repo-arrow {
+    display: block;
+    font-size: 1.5rem;
+    color: #667eea;
+    margin: 0.3rem 0;
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(8px);
+    }
+}
+
+.repo-text-link {
+    display: inline-block;
+    margin-top: 0;
+    color: #667eea;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+    font-weight: bold;
+}
+
+.repo-text-link:hover {
+    color: #764ba2 !important;
 }
 
 /* Scroll to Top Button */
