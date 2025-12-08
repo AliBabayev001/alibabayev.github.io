@@ -371,6 +371,32 @@ function ensurePageVisible() {
     document.body.style.opacity = '1';
 }
 
+    // Try to open Gmail app, then fall back to Gmail web compose
+    function openWithGmail(email) {
+        const encoded = encodeURIComponent(email);
+        const gmailAppUrl = `googlegmail:///co?to=${encoded}`;
+        const gmailWebUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encoded}`;
+
+        // Attempt to trigger Gmail app without leaving the page
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = gmailAppUrl;
+        document.body.appendChild(iframe);
+
+        // Always open Gmail web compose in a new tab as a reliable fallback
+        const newTab = window.open(gmailWebUrl, '_blank');
+        if (newTab) {
+            newTab.opener = null;
+        }
+
+        // Clean up the iframe after a moment
+        setTimeout(() => {
+            if (iframe.parentNode) {
+                iframe.parentNode.removeChild(iframe);
+            }
+        }, 1000);
+    }
+
 window.addEventListener('load', ensurePageVisible);
 window.addEventListener('visibilitychange', () => {
     if (!document.hidden) {
@@ -420,9 +446,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const email = this.getAttribute('data-email');
             if (!email) return;
+                const provider = this.getAttribute('data-provider');
 
             // Open mail client directly
-            window.location.href = 'mailto:' + email;
+                // Open with Gmail (app + web compose) when requested; otherwise mailto
+                if (provider === 'gmail') {
+                    openWithGmail(email);
+                } else {
+                    window.location.href = 'mailto:' + email;
+                }
 
             // Ensure page remains visible when returning
             ensurePageVisible();
