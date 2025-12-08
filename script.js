@@ -448,42 +448,57 @@ console.log('Portfolio interactive features loaded successfully!');
 
 // Swipe Navigation for Mobile
 let touchStartX = 0;
-let touchEndX = 0;
+let touchStartY = 0;
 
-function handleSwipe() {
-    const swipeThreshold = 100; // Minimum distance for swipe (increased to prevent accidental swipes)
-    const diff = touchStartX - touchEndX;
+function handleSwipe(startX, endX, startY, endY) {
+    const swipeThreshold = 100; // Minimum distance for swipe
+    const verticalThreshold = 50; // Maximum vertical movement to consider it a horizontal swipe
+    
+    const diff = startX - endX;
+    const verticalDiff = Math.abs(startY - endY);
+    
+    // Only consider horizontal swipes (not vertical scrolls)
+    if (verticalDiff > verticalThreshold) {
+        return;
+    }
     
     // Get current page
     const currentPage = window.location.pathname;
+    console.log('Current page:', currentPage, 'Swipe distance:', Math.abs(diff));
     
-    // Swipe left (go to next page)
+    // Swipe left (go to next page) - positive diff
     if (diff > swipeThreshold) {
-        if (currentPage.includes('index.html') || currentPage === '/' || currentPage === '') {
+        console.log('Swiped left - going to next page');
+        if (currentPage.includes('index.html') || currentPage === '/' || currentPage.endsWith('/')) {
             window.location.href = 'about.html';
         } else if (currentPage.includes('about.html')) {
             window.location.href = 'projects.html';
         }
-        // On projects page, no swipe left
     }
     
-    // Swipe right (go to previous page)
+    // Swipe right (go to previous page) - negative diff
     if (diff < -swipeThreshold) {
+        console.log('Swiped right - going to previous page');
         if (currentPage.includes('about.html')) {
             window.location.href = 'index.html';
         } else if (currentPage.includes('projects.html')) {
             window.location.href = 'about.html';
         }
-        // On home page, no swipe right
     }
 }
 
 document.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-});
+    if (e.touches.length === 1) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+    }
+}, false);
 
 document.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-});
+    if (e.changedTouches.length === 1) {
+        const touchEndX = e.changedTouches[0].clientX;
+        const touchEndY = e.changedTouches[0].clientY;
+        handleSwipe(touchStartX, touchEndX, touchStartY, touchEndY);
+    }
+}, false);
 
