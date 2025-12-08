@@ -451,7 +451,7 @@ let touchStartX = 0;
 let touchEndX = 0;
 
 function handleSwipe() {
-    const swipeThreshold = 50; // Minimum distance for swipe
+    const swipeThreshold = 100; // Minimum distance for swipe (increased to prevent accidental swipes)
     const diff = touchStartX - touchEndX;
     
     // Get current page
