@@ -445,3 +445,45 @@ if ('IntersectionObserver' in window) {
 }
 
 console.log('Portfolio interactive features loaded successfully!');
+
+// Swipe Navigation for Mobile
+let touchStartX = 0;
+let touchEndX = 0;
+
+function handleSwipe() {
+    const swipeThreshold = 50; // Minimum distance for swipe
+    const diff = touchStartX - touchEndX;
+    
+    // Get current page
+    const currentPage = window.location.pathname;
+    
+    // Swipe left (go to next page)
+    if (diff > swipeThreshold) {
+        if (currentPage.includes('index.html') || currentPage === '/' || currentPage === '') {
+            window.location.href = 'about.html';
+        } else if (currentPage.includes('about.html')) {
+            window.location.href = 'projects.html';
+        }
+        // On projects page, no swipe left
+    }
+    
+    // Swipe right (go to previous page)
+    if (diff < -swipeThreshold) {
+        if (currentPage.includes('about.html')) {
+            window.location.href = 'index.html';
+        } else if (currentPage.includes('projects.html')) {
+            window.location.href = 'about.html';
+        }
+        // On home page, no swipe right
+    }
+}
+
+document.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
