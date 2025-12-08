@@ -363,14 +363,19 @@ function isValidEmail(email) {
     return emailRegex.test(email);
 }
 
-// Smooth Page Transitions
-window.addEventListener('beforeunload', function() {
-    document.body.style.opacity = '0.5';
-});
-
-window.addEventListener('load', function() {
+// Keep the page visible even when focus leaves for mail apps
+function ensurePageVisible() {
+    document.documentElement.style.visibility = 'visible';
+    document.documentElement.style.opacity = '1';
+    document.body.style.visibility = 'visible';
     document.body.style.opacity = '1';
-    document.body.style.transition = 'opacity 0.3s ease-in-out';
+}
+
+window.addEventListener('load', ensurePageVisible);
+window.addEventListener('visibilitychange', () => {
+    if (!document.hidden) {
+        ensurePageVisible();
+    }
 });
 
 // Add loading state to buttons
@@ -412,23 +417,16 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            
+
             const email = this.getAttribute('data-email');
-            if (email) {
-                // Create a temporary anchor element to trigger mailto
-                const link = document.createElement('a');
-                link.href = 'mailto:' + email;
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                
-                // Restore focus and visibility to prevent white screen
-                setTimeout(() => {
-                    document.body.style.visibility = 'visible';
-                    document.body.style.opacity = '1';
-                    window.focus();
-                }, 100);
-            }
+            if (!email) return;
+
+            // Open mail client directly
+            window.location.href = 'mailto:' + email;
+
+            // Ensure page remains visible when returning
+            ensurePageVisible();
+            window.addEventListener('focus', () => setTimeout(ensurePageVisible, 50), { once: true });
         });
     });
 });
