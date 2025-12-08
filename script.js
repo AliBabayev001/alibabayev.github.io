@@ -451,7 +451,7 @@ let touchStartX = 0;
 let touchStartY = 0;
 
 function handleSwipe(startX, endX, startY, endY) {
-    const swipeThreshold = 100; // Minimum distance for swipe
+    const swipeThreshold = 50; // Minimum distance for swipe
     const verticalThreshold = 50; // Maximum vertical movement to consider it a horizontal swipe
     
     const diff = startX - endX;
