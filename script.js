@@ -421,6 +421,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
+                
+                // Restore focus and visibility to prevent white screen
+                setTimeout(() => {
+                    document.body.style.visibility = 'visible';
+                    document.body.style.opacity = '1';
+                    window.focus();
+                }, 100);
             }
         });
     });
