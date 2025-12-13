@@ -1,0 +1,134 @@
+---
+layout: default
+title: About
+permalink: /pages/about/
+---
+
+<!-- About Content -->
+<section class="about-page">
+  <div class="container">
+    <h1>About Me</h1>
+    <div class="about-content">
+      <div class="about-left">
+        <img src="{{ '/assets/images/portrait.jpg' | relative_url }}" alt="Ali Babayev portrait" class="portrait" />
+        <h3 class="portrait-title">Ali Babayev</h3>
+        <p class="portrait-subtitle">
+          1/4 Computer Science student in Ada University
+        </p>
+      </div>
+      <div class="about-text">
+        <h2>Welcome!</h2>
+        <p>
+          I'm Ali Babayev, a first-year Computer Science student at ADA
+          University. I have a strong enthusiasm for computer science and a
+          deep drive to learn and grow in the field. I enjoy taking on
+          challenging problems, exploring new technologies, and applying
+          practical skills to real projects. My goal is to build a solid
+          foundation in algorithms, systems, and software development as I
+          pursue a long-term career in computing.
+        </p>
+
+        <h3>My Background</h3>
+        <p>
+          My interest in computing is personal, my grandfather was a
+          well-known computer scientist in his time, programming automation
+          systems for several plants in his city. Beyond his computational
+          expertise, he was also a dedicated math teacher who profoundly
+          shaped my mathematical foundation. Growing up, he acquainted me
+          with the elegance and power of mathematics, instilling a deep
+          appreciation for the subject. My passion for mathematics is
+          reflected in my academic achievements: I scored 100.0 in
+          Mathematics from SEC (DIM) and 150.0 from "Blok". I further
+          demonstrated my mathematical prowess by achieving a 5 on the AP
+          Calculus BC exam, scoring 800 in Mathematics on the SAT, and
+          earning 3 international mathematics olympiad medals (SASMO, AMO).
+          These accomplishments depict my profound love for mathematics and
+          its applications. Growing up hearing my grandfather's stories and
+          seeing the tangible impact of his work in both computing and
+          mathematics inspired me to follow a similar path. His achievements
+          motivated me to explore both fields deeply and shaped my decision
+          to study Computer Science at ADA University.
+        </p>
+
+        <h3>My Studies</h3>
+        <p>
+          As a student, I concentrate rigorously on my Computer Science
+          studies, exploring topics related to algorithms, systems, and
+          software engineering. Mathematics forms the theoretical backbone
+          of my technical work, and I actively engage with advanced
+          mathematics to deepen my understanding of computational theory and
+          optimization. Beyond the classroom, I pursue hobbies that sharpen
+          my thinking and creativity: chess, which develops strategic
+          reasoning and pattern recognition; advanced mathematics, which
+          challenges me to think abstractly and solve complex problems; and
+          perfumery, which trains attention to detail and fosters creativity
+          in a different medium. Together, these pursuits complement my
+          technical learning and help me grow as a well-rounded student who
+          bridges the worlds of mathematics, computer science, and creative
+          exploration.
+        </p>
+      </div>
+
+      <div class="skills-section">
+        <h2>Skills & Expertise</h2>
+        <div class="skills">
+          <div class="skill-item">
+            <h3>Mathematics</h3>
+            <ul>
+              <li>Calculus (AP Calculus BC level)</li>
+              <li>Advanced Problem Solving</li>
+              <li>Mathematical Olympiad Expertise (SASMO, AMO)</li>
+              <li>Discrete Mathematics & Logic</li>
+            </ul>
+          </div>
+
+          <div class="skill-item">
+            <h3>Personal Tutor for Math</h3>
+            <ul>
+              <li>Secondary Mathematics Education</li>
+              <li>Advanced Calculus & Optimization</li>
+              <li>Competition Mathematics Preparation</li>
+              <li>Personalized Learning Approaches</li>
+            </ul>
+          </div>
+
+          <div class="skill-item">
+            <h3>Computer Science</h3>
+            <ul>
+              <li>Algorithms & Data Structures</li>
+              <li>Systems Design</li>
+              <li>Software Engineering Principles</li>
+              <li>Computational Theory</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+  <div class="container">
+    <h2>Get In Touch</h2>
+    <p>Feel free to reach out to me for collaborations or inquiries.</p>
+    <div class="contact-emails">
+      <button class="email-button" data-email="ababayev25160@ada.edu.az">
+        <strong>ADA Email:</strong> ababayev25160@ada.edu.az
+      </button>
+      <button class="email-button" data-email="aliforbackup12345@gmail.com" data-provider="gmail">
+        <strong>Gmail:</strong> aliforbackup12345@gmail.com
+      </button>
+    </div>
+    <div class="social-links">
+      <a href="https://github.com/AliBabayev001" class="social-icon" target="_blank">GitHub</a>
+      <a href="https://www.codecademy.com/profiles/AliBabayev" class="social-icon" target="_blank">Codecademy</a>
+    </div>
+    <p class="github-repo">
+      <span class="repo-label">View Website Repository on GitHub</span>
+      <span class="repo-arrow">↓</span>
+      <a href="https://github.com/AliBabayev001/alibabayev.github.io" target="_blank" class="repo-text-link">https://github.com/AliBabayev001/alibabayev.github.io</a>
+    </p>
+  </div>
+</section>

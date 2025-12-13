@@ -3,18 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% if page.title %}{{ page.title }} - Ali Babayev{% else %}Ali Babayev - Portfolio{% endif %}</title>
-    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}" />
+    <title>
+      {% if page.title %}{{ page.title }} - Ali Babayev{% else %}Ali Babayev -
+      Portfolio{% endif %}
+    </title>
+    <link
+      rel="stylesheet"
+      href="{{ '/assets/css/styles.css' | relative_url }}"
+    />
   </head>
   <body>
     {% include navbar.html %}
-    
-    <main>
-      {{ content }}
-    </main>
-    
+
+    <main>{{ content }}</main>
+
     {% include footer.html %}
-    
+
     <script src="{{ '/assets/js/script.js' | relative_url }}"></script>
   </body>
 </html>

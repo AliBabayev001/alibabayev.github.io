@@ -1,0 +1,89 @@
+---
+layout: default
+title: Home
+permalink: /
+---
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+  <div class="container">
+    <img src="{{ '/assets/images/image.png' | relative_url }}" alt="Ali Babayev Portrait" class="hero-portrait" />
+    <h1>Hello, I'm Ali Babayev</h1>
+    <div class="hero-subtitle">
+      <p>
+        Welcome to my portfolio. I am a 17-year-old first year Computer Science student in ADA university, who aspires to advance in this field and this very website, giving information about me and my projects is also a part of it
+      </p>
+      <div class="hero-icons">
+        <a href="https://github.com/AliBabayev001" class="icon-link" target="_blank" aria-label="GitHub">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 .5C5.73.5.75 5.48.75 11.75c0 4.94 3.29 9.12 7.86 10.6.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.1-3.2.7-3.88-1.54-3.88-1.54-.52-1.32-1.28-1.67-1.28-1.67-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.76.4-1.26.72-1.55-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .98-.31 3.2 1.18a11.1 11.1 0 0 1 2.92-.39c.99 0 1.99.13 2.92.39 2.22-1.49 3.2-1.18 3.2-1.18.63 1.59.23 2.77.11 3.06.74.81 1.19 1.84 1.19 3.1 0 4.43-2.71 5.4-5.29 5.68.41.36.78 1.08.78 2.18 0 1.57-.01 2.84-.01 3.23 0 .3.2.66.79.55 4.57-1.49 7.86-5.66 7.86-10.6C23.25 5.48 18.27.5 12 .5z" />
+          </svg>
+        </a>
+        <a href="https://www.codecademy.com/profiles/board8737217462" class="icon-link" target="_blank" aria-label="Codecademy">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 2H8a2 2 0 0 0-2 2v14a1 1 0 0 0 1.447.894L12 16l4.553 2.894A1 1 0 0 0 18 19V4a2 2 0 0 0-2-2zM6 6H4v12a2 2 0 0 0 2 2h12v-2H6V6z" />
+          </svg>
+        </a>
+        <a href="https://github.com/AliBabayev001/alibabayev.github.io" class="icon-link" target="_blank" aria-label="Website Repository">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8l-2-2zM8 14h8v2H8v-2zm0-4h8v2H8V10z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <a href="{{ '/pages/about/' | relative_url }}" class="cta-button">Learn More About Me</a>
+  </div>
+</section>
+
+<!-- About Preview Section -->
+<section class="about-preview">
+  <div class="container">
+    <h2>About Me</h2>
+    <p>
+      I'm Ali Babayev, a first-year Computer Science student at ADA University. I have a strong enthusiasm for computer science and a deep drive to learn and grow in the field.
+    </p>
+    <a href="{{ '/pages/about/' | relative_url }}" class="read-more-link">Read Full About Page →</a>
+  </div>
+</section>
+
+<!-- Featured Projects Preview -->
+<section class="projects-preview">
+  <div class="container">
+    <h2>Featured Projects</h2>
+    <p>Check out some of my recent work:</p>
+    <div class="projects-grid-preview">
+      <div class="project-card-preview">
+        <h3>Principles of Information Systems Project 1</h3>
+        <p>
+          A hands-on electronics project encompassing breadboard circuit design and practical work with circuitries, focusing on digital logic gates and their real-world applications.
+        </p>
+        <a href="{{ '/pages/projects/' | relative_url }}" class="project-link">View All Projects →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+  <div class="container">
+    <h2>Get In Touch</h2>
+    <p>Feel free to reach out to me for collaborations or inquiries.</p>
+    <div class="contact-emails">
+      <button class="email-button" data-email="ababayev25160@ada.edu.az">
+        <strong>ADA Email:</strong> ababayev25160@ada.edu.az
+      </button>
+      <button class="email-button" data-email="aliforbackup12345@gmail.com" data-provider="gmail">
+        <strong>Gmail:</strong> aliforbackup12345@gmail.com
+      </button>
+    </div>
+    <div class="social-links">
+      <a href="https://github.com/AliBabayev001" class="social-icon" target="_blank">GitHub</a>
+      <a href="https://www.codecademy.com/profiles/AliBabayev" class="social-icon" target="_blank">Codecademy</a>
+    </div>
+    <p class="github-repo">
+      <span class="repo-label">View Website Repository on GitHub</span>
+      <span class="repo-arrow">↓</span>
+      <a href="https://github.com/AliBabayev001/alibabayev.github.io" target="_blank" class="repo-text-link">https://github.com/AliBabayev001/alibabayev.github.io</a>
+    </p>
+  </div>
+</section>
