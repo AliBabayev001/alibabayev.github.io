@@ -1,22 +1,18 @@
-// Initialize interactive features
-document.addEventListener('DOMContentLoaded', function() {
-    // Smooth scrolling for navigation links
-    setupSmoothScrolling();
-    
-    // Scroll animations
-    setupScrollAnimations();
-    
-    // Scroll-to-top button
-    setupScrollToTop();
-    
-    // Active navigation highlight
-    highlightActiveNavigation();
-    
-    // Ensure search markup exists (useful when Live Server opens a non-index page)
-    ensureSearchInNavbar();
-    // Search functionality
-    setupSearch();
-});
+/* ========================================
+   Portfolio Interactive Features Module
+   ======================================== */
+
+// Initialize all interactive features
+document.addEventListener('DOMContentLoaded', initializePortfolio);
+
+function initializePortfolio() {
+    Navigation.init();
+    Scrolling.init();
+    Search.init();
+    Email.init();
+    UI.init();
+    console.log('Portfolio interactive features loaded successfully!');
+}
 
 // If the page was opened directly (e.g. Live Server opens about.html),
 // some builds or editors may not include the search markup. Ensure it's present.
