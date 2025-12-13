@@ -108,4 +108,4 @@ This portfolio is personal and open for viewing. All code is available on GitHub
 
 ---
 
-**Last Updated**: December 8, 2025
+**Last Updated**: December 13, 2025
