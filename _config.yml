@@ -1,0 +1,41 @@
+# Jekyll Configuration for Ali Babayev Portfolio
+
+title: Ali Babayev
+description: Portfolio and projects showcase
+author: Ali Babayev
+email: ababayev25160@ada.edu.az
+
+# Build settings
+baseurl: ""
+url: "https://alibabayev001.github.io"
+markdown: kramdown
+theme: jekyll-theme-minimal
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Collections
+collections:
+  pages:
+    output: true
+    permalink: /:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+# Exclude files
+exclude:
+  - .jekyll-cache/
+  - .gitignore
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - AliBabayevmd.md
+  - technicaldoc.md
