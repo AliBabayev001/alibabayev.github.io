@@ -76,7 +76,7 @@ permalink: /pages/projects/
     </div>
     <div class="social-links">
       <a href="https://github.com/AliBabayev001" class="social-icon" target="_blank">GitHub</a>
-      <a href="https://www.codecademy.com/profiles/AliBabayev" class="social-icon" target="_blank">Codecademy</a>
+      <a href="https://www.codecademy.com/profiles/AliBabayevv001" class="social-icon" target="_blank">Codecademy</a>
     </div>
     <p class="github-repo">
       <span class="repo-label">View Website Repository on GitHub</span>
