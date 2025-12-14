@@ -3693,3 +3693,4 @@ Done! I've added:
 This should prevent the white screen when you swipe. The page will now stay static without any skewing. Refresh your phone to test!
 
 Made changes.
+
