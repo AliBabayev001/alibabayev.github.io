@@ -95,12 +95,71 @@ alibabayev.github.io/
 - **GitHub Repository**: [https://github.com/AliBabayev001/alibabayev.github.io](https://github.com/AliBabayev001/alibabayev.github.io)
 - **Website Repository Link**: Available on all pages under "View Website Repository on GitHub"
 
+## Design Source & Documentation
+
+This portfolio features a **custom-designed interface** created specifically for this project. The design emphasizes professionalism, user experience, and accessibility.
+
+### Design Philosophy
+- **Professional Appearance**: Clean, modern design representing a CS student's portfolio
+- **User Experience**: Intuitive navigation with smooth interactions
+- **Responsive Design**: Seamless experience across mobile, tablet, and desktop
+- **Accessibility**: WCAG AA compliant with proper contrast and semantic HTML
+- **Performance**: Optimized CSS with custom properties, vanilla JavaScript
+
+### Design Elements
+
+**Color Palette**:
+- Primary: `#667eea` (Professional blue) with dark variant `#764ba2`
+- Secondary: `#3498db` (Accent blue) with dark variant `#2980b9`
+- Neutrals: Grays for text (`#333`), backgrounds (`#f9f9f9`), and borders (`#ddd`)
+
+**Typography**:
+- Font Stack: Segoe UI, Tahoma, Geneva, Verdana, sans-serif
+- Responsive sizing: 3rem headings down to 0.875rem captions
+- Clear hierarchy for easy content scanning
+
+**Spacing System**:
+- CSS custom properties for consistency: `--spacing-xs` to `--spacing-2xl`
+- 8px base unit for mathematical consistency
+- Adequate whitespace reduces cognitive load
+
+**Animations & Interactions**:
+- Smooth transitions with consistent timing (`--transition-fast/normal/slow`)
+- Hover effects on interactive elements
+- Fade-in animations for scroll reveal
+- GPU-accelerated transforms for performance
+
+**Responsive Breakpoints**:
+- Mobile (320-480px): Single column, simplified layout
+- Tablet (481-768px): Two columns, adjusted spacing
+- Desktop (769px+): Full layout with optimal typography
+
+### Design Documentation
+
+For comprehensive design documentation including:
+- Complete design system
+- Component specifications
+- Accessibility features
+- Animation specifications
+- Performance considerations
+
+See: **[DESIGN.md](./DESIGN.md)** - Full design documentation and specifications
+
+### Custom Development
+
+- **No Templates**: Designed and built from scratch
+- **No Frameworks**: Vanilla HTML, CSS, and JavaScript
+- **Modular Architecture**: 5 JavaScript modules (Navigation, Scrolling, Search, Email, UI)
+- **CSS Variables**: Complete theming system for easy customization
+
 ## Development Notes
 
 - Built with vanilla HTML, CSS, and JavaScript (no frameworks)
 - Responsive design implemented with CSS Grid and Flexbox
 - Git workflow with meaningful commits showing development progress
 - Mobile-first responsive design approach
+- Custom CSS variables system for maintainability
+- Modular JavaScript architecture for scalability
 
 ## License
 
