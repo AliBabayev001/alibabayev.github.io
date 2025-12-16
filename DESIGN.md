@@ -1,8 +1,8 @@
 # Portfolio Design Documentation
 
-## Overview
+## Overview - source
 
-This is a custom-designed, responsive portfolio website for Ali Babayev
+This is a custom-designed, no prior template, portfolio website for Ali Babayev
 
 ---
 
