@@ -2,7 +2,7 @@
 
 ## Overview - source
 
-This is a custom-designed, no prior template, portfolio website for Ali Babayev
+This is a custom-designed (with assitance of copilot), no prior template, portfolio website for Ali Babayev
 
 ---
 
