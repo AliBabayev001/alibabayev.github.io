@@ -25,18 +25,34 @@ A professional, responsive portfolio website showcasing my skills, projects, and
 
 ```
 alibabayev.github.io/
-├── index.html              # Home page
-├── about.html              # About page with bio and skills
-├── projects.html           # Projects showcase page
-├── styles.css              # Global stylesheet
-├── script.js               # Interactive features (search, scroll, animations)
-├── README.md               # This file
-├── technicaldoc.md         # Technical documentation
-├── AliBabayevmd.md         # Development conversation transcript
-├── images/
-│   ├── image.png           # Portrait image
-│   └── [project images]    # Project gallery images
-└── .gitignore              # Git ignore file
+├── index.html                      # Home page (root required for GitHub Pages)
+├── about.html                      # About page with bio and skills
+├── projects.html                   # Projects showcase page
+├── README.md                       # Project documentation
+├── src/                            # Source files
+│   ├── script.js                   # Interactive features (search, scroll, animations)
+│   └── styles.css                  # Global stylesheet with CSS variables
+├── docs/                           # Documentation
+│   ├── AliBabayevmd.md             # AI conversation transcript
+│   ├── DESIGN.md                   # Design system documentation
+│   ├── technicaldoc.md             # Technical documentation
+│   └── index.md                    # Jekyll index markdown
+├── _includes/                      # Reusable components
+│   ├── navbar.html                 # Navigation bar component
+│   └── footer.html                 # Footer component
+├── _layouts/                       # Jekyll templates
+│   └── default.html                # Master layout template
+├── assets/                         # Jekyll assets
+│   ├── css/
+│   ├── js/
+│   └── images/
+├── images/                         # Project and portfolio images
+│   ├── image.png                   # Portrait image
+│   ├── portrait.jpg
+│   └── [project images]            # Project gallery images
+├── _config.yml                     # Jekyll configuration
+├── Gemfile                         # Ruby dependencies
+└── .gitignore                      # Git ignore file
 ```
 
 ## Features Breakdown
